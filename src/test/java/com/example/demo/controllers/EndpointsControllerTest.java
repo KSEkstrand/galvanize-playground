@@ -26,4 +26,11 @@ public class EndpointsControllerTest {
                 .andExpect(content().string("GET to index route"));
     }
 
+    @Test public void testPiEndpoint() throws Exception{
+        String pi = String.valueOf(Math.PI);
+        this.mvc.perform(get("/math/pi").accept(MediaType.TEXT_PLAIN))
+                .andExpect(status().isOk())
+                .andExpect(content().string(pi));
+    }
+
 }

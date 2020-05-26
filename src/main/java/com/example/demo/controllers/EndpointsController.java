@@ -11,4 +11,11 @@ public class EndpointsController {
         return "GET to index route";
     }
 
+    @GetMapping("/math/pi")
+    public String getPi(){
+        return String.valueOf(Math.PI);
+    }
+
+
+
 }
