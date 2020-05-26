@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,18 +20,24 @@ public class EndpointsControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
+    @ParameterizedTest
     public void testIndexEndpoint() throws Exception {
         this.mvc.perform(get("/").accept(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andExpect(content().string("GET to index route"));
     }
 
-    @Test public void testPiEndpoint() throws Exception{
+    @Test
+    public void testPiEndpoint() throws Exception{
         String pi = String.valueOf(Math.PI);
         this.mvc.perform(get("/math/pi").accept(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andExpect(content().string(pi));
+    }
+
+    @Test
+    public void testCalculationEndpoint() throws Exception {
+
     }
 
 }

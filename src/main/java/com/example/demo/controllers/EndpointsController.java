@@ -16,6 +16,9 @@ public class EndpointsController {
         return String.valueOf(Math.PI);
     }
 
+    @GetMapping("/math/calculate")
+    public String getCalculation(){
 
+    }
 
 }
